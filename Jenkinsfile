@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat(script: '"${tool \'MSBuild\'}" "TestWebApplication\\TestWebApplication.sln" /p:Configuration=Release /p:Platform="Any CPU" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}', returnStatus: true, returnStdout: true)
+        bat "\"${tool 'MSBuild'}\" \"TestWebApplication\\TestWebApplication.sln\" /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
       }
     }
     stage('Archive') {
